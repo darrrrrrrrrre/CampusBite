@@ -100,8 +100,8 @@
 
 <style>
   .hero-marquee {
-    font-size: 0.95rem; /* 比主標語小 */
-    min-height: 2.5em;  /* 保證最長標語完整顯示 */
+    font-size: 0.95rem;
+    min-height: 2.5em;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
@@ -110,14 +110,14 @@
   }
   .hero-marquee.show {
     opacity: 1;
-    animation: marquee 6s linear forwards;
+    animation: marquee 4s linear forwards; /* 總長度縮短為 4 秒 */
   }
 
   @keyframes marquee {
-    0% { transform: translateX(100%); }
-    15% { transform: translateX(0); }   /* 進場 */
-    70% { transform: translateX(0); }   /* 停留 */
-    100% { transform: translateX(-100%); } /* 出場 */
+    0% { transform: translateX(100%); opacity: 0; }
+    20% { transform: translateX(0); opacity: 1; }   /* 進場 1 秒 */
+    60% { transform: translateX(0); opacity: 1; }   /* 停留 1 秒 */
+    100% { transform: translateX(-100%); opacity: 0; } /* 淡出 2 秒 */
   }
 </style>
 
@@ -137,12 +137,12 @@
       marqueeElement.textContent = slogans[index];
       marqueeElement.classList.add("show");
       index = (index + 1) % slogans.length;
-    }, 1000); // 淡出後換文字
+    }, 500); // 淡出後換文字
   }
 
   // 初始化
   showSlogan();
-  setInterval(showSlogan, 6000); // 每 6 秒切換一次 (1-2 秒進場 + 2 秒停留 + 2 秒淡出)
+  setInterval(showSlogan, 4000); // 每 4 秒切換一次 (1 秒進場 + 1 秒停留 + 2 秒淡出)
 </script>
 
         <!-- 3 大擴充特色區塊展示 -->
