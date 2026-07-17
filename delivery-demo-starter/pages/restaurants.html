@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>找餐廳 - CampusBite</title>
+    <!-- 引入莫蘭迪風格 CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+
+    <!-- 導覽列 (Navbar) -->
+    <nav class="navbar">
+        <a href="../index.html" class="nav-logo">CampusBite</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">首頁</a></li>
+            <li><a href="restaurants.html" class="active">找餐廳</a></li>
+            <li><a href="menu.html">美味菜單</a></li>
+            <li>
+                <a href="cart.html" style="position: relative;">
+                    購物車
+                    <span id="cart-badge" style="
+                        position: absolute;
+                        top: -8px;
+                        right: -15px;
+                        background-color: var(--morandi-rose);
+                        color: white;
+                        font-size: 0.75rem;
+                        padding: 2px 6px;
+                        border-radius: 50%;
+                        display: none;
+                    ">0</span>
+                </a>
+            </li>
+            <li><a href="order-status.html">訂單狀態</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="profile.html">會員中心</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.2rem; color: var(--morandi-text-dark); margin-bottom: 10px;">合作特約餐廳</h1>
+            <p style="color: var(--morandi-text-light);">嚴選逢甲學區優質店家，安全衛生、配送迅速</p>
+        </header>
+
+        <!-- 餐廳列表網格 -->
+        <div class="grid">
+            <!-- 餐廳 1 -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-category">輕食沙拉</span>
+                    <h3 class="card-title">綠野晨光輕食館</h3>
+                    <p class="card-desc">主打無毒有機水耕蔬菜與低卡舒肥雞肉，是追求健康與窈窕體態的逢甲人首選。</p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light);">⏱️ 15-25 分鐘</span>
+                        <a href="menu.html" class="btn">進入點餐</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 餐廳 2 -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-category">台式炸物</span>
+                    <h3 class="card-title">逢甲夜市靈魂鹽酥雞</h3>
+                    <p class="card-desc">傳承三十年的秘製椒鹽粉，酥炸至金黃酥脆的炸雞與雙色地瓜球，宵夜邪惡首選。</p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light);">⏱️ 20-30 分鐘</span>
+                        <a href="menu.html" class="btn">進入點餐</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 餐廳 3 -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-category">法式甜點</span>
+                    <h3 class="card-title">莫蘭迪午茶烘焙坊</h3>
+                    <p class="card-desc">每日現烤法式香草格子鬆餅與藍莓重乳酪蛋糕，優雅的灰色調視覺，給您滿滿療癒感。</p>
+                    <div class="card-footer">
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light);">⏱️ 25-35 分鐘</span>
+                        <a href="menu.html" class="btn">進入點餐</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer style="
+        background-color: var(--morandi-card);
+        border-top: 1px solid var(--morandi-border);
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+        color: var(--morandi-text-light);
+        font-size: 0.9rem;
+    ">
+        <p>© 2026 CampusBite 團隊開發版. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #B5A69B;">逢甲大學資訊專題小組 製作 ✕ 獨立開發完成</p>
+    </footer>
+
+    <!-- 引入我們的 JS 大腦 -->
+    <script src="../js/app.js"></script>
+</body>
+</html>

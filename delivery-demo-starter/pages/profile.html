@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人中心 - CampusBite</title>
+    <!-- 引入莫蘭迪風格 CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        .profile-container {
+            display: flex;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+            }
+        }
+        .profile-avatar-card {
+            background-color: var(--morandi-card);
+            border: 1px solid var(--morandi-border);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            width: 250px;
+            height: fit-content;
+        }
+        @media (max-width: 768px) {
+            .profile-avatar-card {
+                width: 100%;
+            }
+        }
+        .avatar-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--morandi-oat);
+            color: white;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            border: 3px solid #FFF;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 (Navbar) -->
+    <nav class="navbar">
+        <a href="../index.html" class="nav-logo">CampusBite</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">首頁</a></li>
+            <li><a href="restaurants.html">找餐廳</a></li>
+            <li><a href="menu.html">美味菜單</a></li>
+            <li>
+                <a href="cart.html" style="position: relative;">
+                    購物車
+                    <span id="cart-badge" style="
+                        position: absolute;
+                        top: -8px;
+                        right: -15px;
+                        background-color: var(--morandi-rose);
+                        color: white;
+                        font-size: 0.75rem;
+                        padding: 2px 6px;
+                        border-radius: 50%;
+                        display: none;
+                    ">0</span>
+                </a>
+            </li>
+            <li><a href="order-status.html">訂單狀態</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="profile.html" class="active">會員中心</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <h2 class="section-title">會員中心</h2>
+
+        <div class="profile-container">
+            <!-- 左側頭像卡 -->
+            <div class="profile-avatar-card">
+                <div class="avatar-circle">柔</div>
+                <h3 style="color: var(--morandi-text-dark); margin-bottom: 5px;">江柔萱</h3>
+                <span style="font-size: 0.82rem; background-color: #EAE6DF; color: var(--morandi-text-dark); padding: 3px 8px; border-radius: 4px;">逢甲大學 VIP</span>
+                <p style="font-size: 0.85rem; color: var(--morandi-text-light); margin-top: 15px;">綠色生活減碳達人 💚</p>
+            </div>
+
+            <!-- 右側詳細資料卡 -->
+            <div style="flex-grow: 1; background-color: var(--morandi-card); border: 1px solid var(--morandi-border); border-radius: var(--radius); padding: 30px;">
+                <h3 style="color: var(--morandi-text-dark); margin-bottom: 20px; border-bottom: 1px solid var(--morandi-border); padding-bottom: 10px;">個人基本資料</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light); display: block; margin-bottom: 5px;">聯絡電話</span>
+                        <span style="font-size: 1rem; color: var(--morandi-text-dark); font-weight: bold;">0912-345-678</span>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light); display: block; margin-bottom: 5px;">常用外送指定點</span>
+                        <span style="font-size: 1rem; color: var(--morandi-text-dark); font-weight: bold;">福星宿舍大廳</span>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light); display: block; margin-bottom: 5px;">電子信箱</span>
+                        <span style="font-size: 1rem; color: var(--morandi-text-dark); font-weight: bold;">fcu-student@fcu.edu.tw</span>
+                    </div>
+                    <div>
+                        <span style="font-size: 0.85rem; color: var(--morandi-text-light); display: block; margin-bottom: 5px;">註冊日期</span>
+                        <span style="font-size: 1rem; color: var(--morandi-text-dark); font-weight: bold;">2026/07/17</span>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--morandi-text-dark); margin-bottom: 20px; border-bottom: 1px solid var(--morandi-border); padding-bottom: 10px;">歷史累積成就</h3>
+                <p style="font-size: 0.9rem; color: var(--morandi-text-dark); margin-bottom: 10px;">🌱 您已累計選擇 **不需要餐具** 達 12 次，成功為地球減少 0.36kg 碳排放！</p>
+                <button class="btn btn-secondary" onclick="alert('基本資料更新功能暫不開放')" style="font-size: 0.9rem;">修改基本資料</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer style="
+        background-color: var(--morandi-card);
+        border-top: 1px solid var(--morandi-border);
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+        color: var(--morandi-text-light);
+        font-size: 0.9rem;
+    ">
+        <p>© 2026 CampusBite 團隊開發版. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #B5A69B;">逢甲大學資訊專題小組 製作 ✕ 獨立開發完成</p>
+    </footer>
+
+    <!-- 引入我們的 JS 大腦 -->
+    <script src="../js/app.js"></script>
+</body>
+</html>

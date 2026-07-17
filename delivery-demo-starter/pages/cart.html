@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的購物車 - CampusBite</title>
+    <!-- 引入莫蘭迪風格 CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        /* 購物車頁面專屬微調 */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--morandi-border);
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 (Navbar) -->
+    <nav class="navbar">
+        <a href="../index.html" class="nav-logo">CampusBite</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">首頁</a></li>
+            <li><a href="restaurants.html">找餐廳</a></li>
+            <li><a href="menu.html">美味菜單</a></li>
+            <li>
+                <a href="cart.html" class="active" style="position: relative;">
+                    購物車
+                    <span id="cart-badge" style="
+                        position: absolute;
+                        top: -8px;
+                        right: -15px;
+                        background-color: var(--morandi-rose);
+                        color: white;
+                        font-size: 0.75rem;
+                        padding: 2px 6px;
+                        border-radius: 50%;
+                        display: none;
+                    ">0</span>
+                </a>
+            </li>
+            <li><a href="order-status.html">訂單狀態</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+            <li><a href="profile.html">會員中心</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <header style="margin-bottom: 30px;">
+            <h1 class="section-title">您的結帳清單</h1>
+        </header>
+
+        <!-- 購物車左右雙欄佈局 -->
+        <div class="cart-layout">
+            
+            <!-- 左側：餐點清單與【模組 C：環保與外送備註】 -->
+            <div class="cart-left">
+                <div class="cart-items-section">
+                    <h3 style="margin-bottom: 20px; color: var(--morandi-text-dark);">已選購餐點</h3>
+                    <!-- 餐點項目渲染容器 -->
+                    <div id="cart-items-list">
+                        <!-- JS 將會動態渲染餐點內容 -->
+                    </div>
+                </div>
+
+                <!-- 【功能模組 C：環保餐具與偏好備註】 -->
+                <div class="module-preference">
+                    <div class="preference-title">🌱 綠色校園減碳計畫</div>
+                    <p style="font-size: 0.85rem; color: var(--morandi-text-light); margin-bottom: 12px;">
+                        為支持逢甲大學綠色校園推廣，本平台全面提供免用一次性餐具選項。
+                    </p>
+                    <div class="option-group">
+                        <button class="option-btn" data-utensil="no">不需要餐具 (推薦 💚)</button>
+                        <button class="option-btn" data-utensil="yes">需要餐具</button>
+                    </div>
+
+                    <div class="preference-title" style="margin-top: 20px;">📍 逢甲校區快捷外送點</div>
+                    <p style="font-size: 0.85rem; color: var(--morandi-text-light); margin-bottom: 12px;">
+                        請選擇外送員方便與您安全交付餐點的地點：
+                    </p>
+                    <div class="option-group" style="flex-wrap: wrap;">
+                        <button class="option-btn" data-location="main_gate">逢甲正門口 (大門圓環)</button>
+                        <button class="option-btn" data-location="dorm">福星男/女生宿舍大廳</button>
+                        <button class="option-btn" data-location="building">科航館/商學大樓 1F 門口</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側：【模組 A：優惠券系統】與結帳金額明細 -->
+            <div class="cart-summary-section">
+                <h3 style="margin-bottom: 20px; color: var(--morandi-text-dark);">結帳明細</h3>
+                
+                <!-- 優惠券輸入盒 -->
+                <div class="coupon-box">
+                    <label style="font-size: 0.88rem; font-weight: bold; color: var(--morandi-text-dark);">
+                        使用專屬折扣碼 (試試看：CAMPUS50 或 FCU85)
+                    </label>
+                    <div class="coupon-input-group">
+                        <input type="text" id="coupon-code-input" class="coupon-input" placeholder="請輸入折扣碼">
+                        <button id="apply-coupon-btn" class="btn btn-secondary" style="padding: 10px 15px;">套用</button>
+                    </div>
+                    <div id="coupon-message" class="coupon-msg"></div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--morandi-border); margin: 20px 0;">
+
+                <!-- 金額計算 -->
+                <div class="summary-row">
+                    <span>餐點小計</span>
+                    <span id="subtotal-price" style="font-weight: bold;">$0</span>
+                </div>
+                <div class="summary-row" style="color: var(--morandi-rose);">
+                    <span>優惠折扣</span>
+                    <span id="discount-price" style="font-weight: bold;">-$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>外送服務費</span>
+                    <span style="font-weight: bold; color: var(--morandi-green);">FREE 免運</span>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--morandi-border); margin: 15px 0;">
+
+                <div class="summary-row" style="font-size: 1.3rem; font-weight: bold; color: var(--morandi-text-dark);">
+                    <span>總計金額</span>
+                    <span id="total-price" style="color: var(--morandi-green);">$0</span>
+                </div>
+
+                <button onclick="submitOrder()" class="btn" style="width: 100%; margin-top: 20px; font-size: 1.1rem; padding: 12px;">
+                    確認送出訂單
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer style="
+        background-color: var(--morandi-card);
+        border-top: 1px solid var(--morandi-border);
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+        color: var(--morandi-text-light);
+        font-size: 0.9rem;
+    ">
+        <p>© 2026 CampusBite 團隊開發版. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #B5A69B;">逢甲大學資訊專題小組 製作 ✕ 獨立開發完成</p>
+    </footer>
+
+    <!-- 引入我們的 JS 大腦 -->
+    <script src="../js/app.js"></script>
+</body>
+</html>
