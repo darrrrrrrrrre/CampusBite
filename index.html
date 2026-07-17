@@ -86,44 +86,61 @@
 
 <!-- Hero 橫幅廣告 -->
 <header class="hero-section">
-  <h1 class="hero-title" id="hero-title"></h1>
-  <p class="hero-subtitle">新鮮直達 ✕ 綠色減碳環保 ✕ 逢甲大學專屬優惠</p>
+  <!-- 主標語 -->
+  <h1 class="hero-title">滿足你校園生活的每一口渴望</h1>
+  
+  <!-- 副標語跑馬燈 -->
+  <p class="hero-subtitle" id="hero-subtitle"></p>
+  
   <a href="pages/menu.html" class="btn" style="font-size: 1.1rem; padding: 12px 30px;">立即探索美食</a>
 </header>
 
 <style>
-  .fade {
+  .hero-subtitle {
+    font-size: 1rem; /* 比主標語小 */
+    min-height: 2.5em; /* 保證最長標語完整顯示 */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .fade.show {
+  .hero-subtitle.show {
     opacity: 1;
+    animation: marquee 6s linear forwards;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    10% { transform: translateX(0); }
+    90% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
   }
 </style>
 
 <script>
-  const slogans = [
-    "滿足你校園生活的每一口渴望",
+  const subtitles = [
     "專屬外送神器，課堂宿舍、一鍵送達！",
     "下課聚餐、分組討論？大家想吃的，我們一次送齊！",
     "深夜趕報告肚子餓？逢甲夜市排隊好味道，免出門送到手！"
   ];
 
-  let index = 0;
-  const titleElement = document.getElementById("hero-title");
+  let subIndex = 0;
+  const subtitleElement = document.getElementById("hero-subtitle");
 
-  function showSlogan() {
-    titleElement.classList.remove("show");
+  function showSubtitle() {
+    subtitleElement.classList.remove("show");
     setTimeout(() => {
-      titleElement.textContent = slogans[index];
-      titleElement.classList.add("show");
-      index = (index + 1) % slogans.length;
-    }, 1000); // 淡出後再換文字
+      subtitleElement.textContent = subtitles[subIndex];
+      subtitleElement.classList.add("show");
+      subIndex = (subIndex + 1) % subtitles.length;
+    }, 1000); // 淡出後換文字
   }
 
   // 初始化
-  showSlogan();
-  setInterval(showSlogan, 3000); // 每 3 秒切換一次
+  showSubtitle();
+  setInterval(showSubtitle, 4000); // 每 4 秒切換一次 (2 秒停留 + 1 秒淡出 + 1 秒切換)
+
 </script>
 
         <!-- 3 大擴充特色區塊展示 -->
