@@ -89,58 +89,60 @@
   <!-- 主標語 -->
   <h1 class="hero-title">滿足你校園生活的每一口渴望</h1>
   
-  <!-- 副標語跑馬燈 -->
-  <p class="hero-subtitle" id="hero-subtitle"></p>
+  <!-- 跑馬燈副標語 -->
+  <p class="hero-marquee" id="hero-marquee"></p>
+  
+  <!-- 靜態副標語 -->
+  <p class="hero-subtitle">新鮮直達 ✕ 綠色減碳環保 ✕ 逢甲大學專屬優惠</p>
   
   <a href="pages/menu.html" class="btn" style="font-size: 1.1rem; padding: 12px 30px;">立即探索美食</a>
 </header>
 
 <style>
-  .hero-subtitle {
-    font-size: 1rem; /* 比主標語小 */
-    min-height: 2.5em; /* 保證最長標語完整顯示 */
+  .hero-marquee {
+    font-size: 0.95rem; /* 比主標語小 */
+    min-height: 2.5em;  /* 保證最長標語完整顯示 */
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
     opacity: 0;
     transition: opacity 1s ease-in-out;
   }
-  .hero-subtitle.show {
+  .hero-marquee.show {
     opacity: 1;
     animation: marquee 6s linear forwards;
   }
 
   @keyframes marquee {
     0% { transform: translateX(100%); }
-    10% { transform: translateX(0); }
-    90% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    15% { transform: translateX(0); }   /* 進場 */
+    70% { transform: translateX(0); }   /* 停留 */
+    100% { transform: translateX(-100%); } /* 出場 */
   }
 </style>
 
 <script>
-  const subtitles = [
+  const slogans = [
     "專屬外送神器，課堂宿舍、一鍵送達！",
     "下課聚餐、分組討論？大家想吃的，我們一次送齊！",
     "深夜趕報告肚子餓？逢甲夜市排隊好味道，免出門送到手！"
   ];
 
-  let subIndex = 0;
-  const subtitleElement = document.getElementById("hero-subtitle");
+  let index = 0;
+  const marqueeElement = document.getElementById("hero-marquee");
 
-  function showSubtitle() {
-    subtitleElement.classList.remove("show");
+  function showSlogan() {
+    marqueeElement.classList.remove("show");
     setTimeout(() => {
-      subtitleElement.textContent = subtitles[subIndex];
-      subtitleElement.classList.add("show");
-      subIndex = (subIndex + 1) % subtitles.length;
+      marqueeElement.textContent = slogans[index];
+      marqueeElement.classList.add("show");
+      index = (index + 1) % slogans.length;
     }, 1000); // 淡出後換文字
   }
 
   // 初始化
-  showSubtitle();
-  setInterval(showSubtitle, 4000); // 每 4 秒切換一次 (2 秒停留 + 1 秒淡出 + 1 秒切換)
-
+  showSlogan();
+  setInterval(showSlogan, 6000); // 每 6 秒切換一次 (1-2 秒進場 + 2 秒停留 + 2 秒淡出)
 </script>
 
         <!-- 3 大擴充特色區塊展示 -->
