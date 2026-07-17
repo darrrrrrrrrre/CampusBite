@@ -84,14 +84,47 @@
         </ul>
     </nav>
 
-    <!-- 主容器 -->
-    <div class="container">
-        <!-- Hero 橫幅廣告 -->
-        <header class="hero-section">
-            <h1 class="hero-title">滿足你校園生活的每一口渴望</h1>
-            <p class="hero-subtitle">新鮮直達 ✕ 綠色減碳環保 ✕ 逢甲大學專屬優惠</p>
-            <a href="pages/menu.html" class="btn" style="font-size: 1.1rem; padding: 12px 30px;">立即探索美食</a>
-        </header>
+<!-- Hero 橫幅廣告 -->
+<header class="hero-section">
+  <h1 class="hero-title" id="hero-title"></h1>
+  <p class="hero-subtitle">新鮮直達 ✕ 綠色減碳環保 ✕ 逢甲大學專屬優惠</p>
+  <a href="pages/menu.html" class="btn" style="font-size: 1.1rem; padding: 12px 30px;">立即探索美食</a>
+</header>
+
+<style>
+  .fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .fade.show {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  const slogans = [
+    "滿足你校園生活的每一口渴望",
+    "專屬外送神器，課堂宿舍、一鍵送達！",
+    "下課聚餐、分組討論？大家想吃的，我們一次送齊！",
+    "深夜趕報告肚子餓？逢甲夜市排隊好味道，免出門送到手！"
+  ];
+
+  let index = 0;
+  const titleElement = document.getElementById("hero-title");
+
+  function showSlogan() {
+    titleElement.classList.remove("show");
+    setTimeout(() => {
+      titleElement.textContent = slogans[index];
+      titleElement.classList.add("show");
+      index = (index + 1) % slogans.length;
+    }, 1000); // 淡出後再換文字
+  }
+
+  // 初始化
+  showSlogan();
+  setInterval(showSlogan, 3000); // 每 3 秒切換一次
+</script>
 
         <!-- 3 大擴充特色區塊展示 -->
         <section>
