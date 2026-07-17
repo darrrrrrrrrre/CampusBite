@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 - CampusBite</title>
+    <!-- 引入莫蘭迪風格 CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--morandi-text-dark);
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--morandi-border);
+            border-radius: var(--radius);
+            background-color: white;
+            outline: none;
+            font-size: 0.95rem;
+            color: var(--morandi-text-dark);
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--morandi-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 (Navbar) -->
+    <nav class="navbar">
+        <a href="../index.html" class="nav-logo">CampusBite</a>
+        <ul class="nav-links">
+            <li><a href="../index.html">首頁</a></li>
+            <li><a href="restaurants.html">找餐廳</a></li>
+            <li><a href="menu.html">美味菜單</a></li>
+            <li>
+                <a href="cart.html" style="position: relative;">
+                    購物車
+                    <span id="cart-badge" style="
+                        position: absolute;
+                        top: -8px;
+                        right: -15px;
+                        background-color: var(--morandi-rose);
+                        color: white;
+                        font-size: 0.75rem;
+                        padding: 2px 6px;
+                        border-radius: 50%;
+                        display: none;
+                    ">0</span>
+                </a>
+            </li>
+            <li><a href="order-status.html">訂單狀態</a></li>
+            <li><a href="contact.html" class="active">聯絡我們</a></li>
+            <li><a href="profile.html">會員中心</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container" style="max-width: 650px;">
+        <div style="background-color: var(--morandi-card); border: 1px solid var(--morandi-border); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow);">
+            <h2 class="section-title" style="margin-bottom: 10px;">聯絡我們</h2>
+            <p style="color: var(--morandi-text-light); margin-bottom: 30px;">
+                有任何關於校園外送、商家合作，或是系統操作的問題嗎？歡迎留下訊息與我們聯絡！
+            </p>
+
+            <form onsubmit="event.preventDefault(); alert('回報成功！我們會儘速回覆您。'); this.reset();">
+                <div class="form-group">
+                    <label class="form-label">您的姓名</label>
+                    <input type="text" class="form-control" placeholder="請輸入姓名" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">電子信箱</label>
+                    <input type="email" class="form-control" placeholder="請輸入 Email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">回報類別</label>
+                    <select class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\'%234A4E4A\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/><path d=\'M0 0h24v24H0z\' fill=\'none\'/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                        <option>訂單問題回報</option>
+                        <option>系統錯誤或 BUG 反應</option>
+                        <option>逢甲特約店家申請合作</option>
+                        <option>其他建議與意見</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">詳細說明</label>
+                    <textarea class="form-control" rows="5" placeholder="請詳細描述您的問題或建議..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; padding: 12px; font-size: 1rem;">送出回報</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+    <footer style="
+        background-color: var(--morandi-card);
+        border-top: 1px solid var(--morandi-border);
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+        color: var(--morandi-text-light);
+        font-size: 0.9rem;
+    ">
+        <p>© 2026 CampusBite 團隊開發版. All rights reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 5px; color: #B5A69B;">逢甲大學資訊專題小組 製作 ✕ 獨立開發完成</p>
+    </footer>
+
+    <!-- 引入我們的 JS 大腦 -->
+    <script src="../js/app.js"></script>
+</body>
+</html>

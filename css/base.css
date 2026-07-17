@@ -1,0 +1,378 @@
+/* ==================== 莫蘭迪風格全局重設 ==================== */
+:root {
+    --morandi-green: #8A9A86;      /* 霧面鼠尾草綠 */
+    --morandi-green-hover: #758571;
+    --morandi-oat: #B5A69B;        /* 溫暖燕麥灰 */
+    --morandi-bg: #F4F1EA;         /* 低飽和米白 */
+    --morandi-card: #FFFFFF;
+    --morandi-text-dark: #4A4E4A;  /* 炭灰泥 */
+    --morandi-text-light: #8E928E; /* 輕柔灰 */
+    --morandi-rose: #D0A9A9;       /* 霧感乾燥粉紅 (警告/折扣用) */
+    --morandi-border: #E0DBD3;
+    --shadow: 0 8px 24px rgba(138, 154, 134, 0.08);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: var(--morandi-bg);
+    color: var(--morandi-text-dark);
+    line-height: 1.6;
+    padding-bottom: 60px;
+}
+
+/* ==================== 頂部導覽列 (Navbar) ==================== */
+.navbar {
+    background-color: var(--morandi-card);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid var(--morandi-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--morandi-green);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--morandi-text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--morandi-green);
+}
+
+/* ==================== 共用主排版 ==================== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--morandi-text-dark);
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 6px;
+    height: 28px;
+    background-color: var(--morandi-green);
+    border-radius: 4px;
+}
+
+/* ==================== 按鈕樣式 ==================== */
+.btn {
+    background-color: var(--morandi-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--morandi-green-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--morandi-oat);
+}
+
+.btn-secondary:hover {
+    background-color: #9C8D82;
+}
+
+/* ==================== 頁面：美食菜單 & 餐廳 (restaurants.html / menu.html) ==================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--morandi-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--morandi-border);
+    transition: transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-category {
+    font-size: 0.75rem;
+    background-color: #EAE6DF;
+    color: var(--morandi-text-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--morandi-text-dark);
+}
+
+.card-desc {
+    font-size: 0.88rem;
+    color: var(--morandi-text-light);
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--morandi-green);
+}
+
+/* ==================== 模組 A & C：購物車與結帳升級 (cart.html) ==================== */
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.cart-items-section {
+    background-color: var(--morandi-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--morandi-border);
+}
+
+/* 模組 C：環保與備註區 */
+.module-preference {
+    background-color: #FAF9F6;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 25px;
+    border: 1px dashed var(--morandi-oat);
+}
+
+.preference-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: var(--morandi-text-dark);
+}
+
+.option-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.option-btn {
+    background-color: #FFF;
+    border: 1px solid var(--morandi-border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+}
+
+.option-btn.active {
+    background-color: var(--morandi-green);
+    color: white;
+    border-color: var(--morandi-green);
+}
+
+/* 模組 A：優惠券側邊欄 */
+.cart-summary-section {
+    background-color: var(--morandi-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--morandi-border);
+    height: fit-content;
+}
+
+.coupon-box {
+    margin-bottom: 20px;
+}
+
+.coupon-input-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.coupon-input {
+    flex-grow: 1;
+    border: 1px solid var(--morandi-border);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.coupon-msg {
+    font-size: 0.82rem;
+    margin-top: 5px;
+    color: var(--morandi-rose);
+}
+
+/* ==================== 模組 B：外送追蹤升級 (order-status.html) ==================== */
+.tracking-card {
+    background-color: var(--morandi-card);
+    border-radius: var(--radius);
+    padding: 30px;
+    border: 1px solid var(--morandi-border);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.delivery-visual {
+    margin: 30px 0;
+    position: relative;
+}
+
+/* 進度條條 */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.progress-container::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #E8E4DC;
+    z-index: 1;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 4px;
+    background-color: var(--morandi-green);
+    z-index: 2;
+    transition: width 0.5s ease;
+}
+
+.progress-step {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #E8E4DC;
+    border: 3px solid #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    font-size: 0.8rem;
+    color: var(--morandi-text-light);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active {
+    background-color: var(--morandi-green);
+    color: white;
+    border-color: var(--morandi-green);
+}
+
+/* 模擬外送員通訊視窗 */
+.driver-chat-box {
+    border: 1px solid var(--morandi-border);
+    border-radius: var(--radius);
+    background-color: #FAF9F6;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.driver-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.driver-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--morandi-oat);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.chat-content {
+    max-height: 150px;
+    overflow-y: auto;
+    border-top: 1px solid var(--morandi-border);
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.chat-input-group {
+    display: flex;
+    gap: 8px;
+}
